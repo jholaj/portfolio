@@ -55,29 +55,6 @@ hr {
   position: relative;
 }
 
-.cursor-animation {
-  position: absolute;
-  top: 65%;
-  left: calc(90%);
-  width: 15px; 
-  height: 1.8em;
-  background-color: #fff;
-  animation: blinkCursor 1s infinite;
-  transform: translateY(-50%);
-}
-
-@keyframes blinkCursor {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
 .lang-button {
   display: inline-block;
   cursor: pointer;

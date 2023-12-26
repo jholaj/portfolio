@@ -1,0 +1,102 @@
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 50px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #999;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+nav ul li a:hover {
+  color: #fff;
+}
+
+
+body {
+  font-family: 'Courier New', monospace;
+  background-color: #000;
+  color: #FFF;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+hr {
+  width: 50%;
+}
+
+.content {
+  margin-left: 20px;
+  margin-top: 50px;
+  position: relative;
+}
+
+.content {
+  margin-top: 50px;
+  margin-left: 20px;
+  position: relative;
+}
+
+.cursor-animation {
+  position: absolute;
+  top: 65%;
+  left: calc(90%);
+  width: 15px; 
+  height: 1.8em;
+  background-color: #fff;
+  animation: blinkCursor 1s infinite;
+  transform: translateY(-50%);
+}
+
+@keyframes blinkCursor {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.lang-button {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.lang-button:hover .underline {
+  width: 100%; 
+  transition: width 0.3s ease-in-out; 
+}
+
+.lang-button {
+  position: relative; 
+}
+
+.underline {
+  position: absolute; 
+  bottom: 0;
+  left: 0;
+  height: 2px; 
+  width: 0; 
+  transition: width 0.3s ease-in-out; 
+}

@@ -1,19 +1,20 @@
 const projects = {
   java: [
-      { name: 'Java Project 1', description: 'Description of Java Project 1', image: 'java_project1.jpg' },
-      { name: 'Java Project 2', description: 'Description of Java Project 2', image: 'java_project2.jpg' },
+      { name: 'Computer Graphics', description: 'Wired 3D model with possible object translation/transformation and moving camera', image: 'https://i.imgur.com/FftgwY6.png' },
+      { name: 'Filling the n-square area with colour', description: 'Implementing filling algorhitms (Seed Fill, Scan-Line)', image: 'https://i.imgur.com/XQDt6oR.png' },
   ],
   python: [
-      { name: 'Python Project 1', description: 'Description of Python Project 1', image: 'python_project1.jpg' },
-      { name: 'Python Project 2', description: 'Description of Python Project 2', image: 'python_project2.jpg' },
+      { name: 'ASCII Generator', description: 'Convert Image to ASCII art', image: 'https://i.imgur.com/W03scPj.png' },
+      { name: 'Web for fictional bussiness - Django backend', description: 'Project for subject: E-technologies in trade and business. Fictional vinyl bussiness - Vinylotopia', image: 'python_project2.jpg' },
+      { name: 'Image Quality Measurement', description: 'Project for Practical Thesis. Measuring quality of the image with PSNR, SSIM and BRISQUE method', image: 'https://i.imgur.com/W03scPj.png' },
   ],
   web: [
-    { name: 'Web Project 1', description: 'Description of Web Project 1', image: 'web_project1.jpg' },
-    { name: 'Web Project 2', description: 'Description of Web Project 2', image: 'web_project2.jpg' },
+    { name: 'Portfolio', description: 'You are looking at it!', image: 'web_project1.jpg' },
+    { name: 'Web for fictional bussiness', description: 'Project for subject: E-technologies in trade and business. Fictional vinyl bussiness - Vinylotopia', image: 'web_project2.jpg' },
   ],
   others: [
-    { name: 'Others Project 1', description: 'Description of Web Others 1', image: 'others_project1.jpg' },
-    { name: 'Others Project 2', description: 'Description of Web Others 2', image: 'others_project2.jpg' },
+    { name: 'Image Color Frequency Analyzer', description: 'Rust and GTK4 project showcasing the 100 most prevalent colors in RGBA image.', image: 'https://i.imgur.com/PZvFtBw.png' },
+    { name: 'Windows App Audio Ripper', description: 'Rippes audio of an app with given PID and gives output as .wav file. Rewrited sample windows.h program.', image: 'https://i.imgur.com/9liTkj7.png' },
   ]
 };
 
@@ -52,6 +53,19 @@ python: [
   ]
 }
 
+// getting color of lang-button
+
+const artsColor = {};
+
+const langButtons = document.querySelectorAll('.lang-button');
+
+langButtons.forEach(button => {
+  const language = button.dataset.panel;
+  const style = window.getComputedStyle(button);
+  const color = style.getPropertyValue('color');
+  artsColor[language] = color;
+});
+
 function showProjects(language) {
   const projectsContainer = document.getElementById('projects-container');
   const asciiArtContainer = document.getElementById('ascii-art-container');
@@ -67,7 +81,6 @@ function showProjects(language) {
 
           const projectImage = document.createElement('img');
           projectImage.src = project.image;
-          projectImage.alt = project.name;
 
           const projectName = document.createElement('h3');
           projectName.textContent = project.name;
@@ -88,6 +101,8 @@ function showProjects(language) {
                     asciiArtContainer.appendChild(document.createTextNode(line + '\n'));
                 });
             }
+            // setting art color from artsColor
+            asciiArtContainer.style.color = artsColor[language];
             asciiArtContainer.classList.add('show');
         }
         

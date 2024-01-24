@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function() {
           planeArt.style.transition = 'transform 1.5s ease-in-out'; 
           planeArt.style.transform = `translateX(${windowWidth}px)`;
 
-          // Odstranit planeArt po dokončení animace nebo po určité době
+          // remove planeArt after animation
           const transitionEndHandler = function() {
               planeArt.remove();
           };

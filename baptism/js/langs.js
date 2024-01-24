@@ -89,6 +89,15 @@ function showProjects(language) {
           projectLink.style.textDecorationColor = artsColor[language]; //underline color same as lang
           projectLink.style.textUnderlineOffset = '0.3em'; // moving underline down
 
+          projectLink.style.transition = 'text-decoration-color 0.3s ease-in-out'; // animation
+          projectLink.addEventListener('mouseover', () => {
+            projectLink.style.textDecorationColor = 'blue'; // hovered => blue
+          });
+          projectLink.addEventListener('mouseout', () => {
+            projectLink.style.textDecorationColor = artsColor[language]; // else back to lang color
+          });
+
+
           const projectDescription = document.createElement('p');
           projectDescription.textContent = project.description;
 

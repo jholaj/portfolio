@@ -7,6 +7,14 @@ const projects = {
       { name: 'Python Project 1', description: 'Description of Python Project 1', image: 'python_project1.jpg' },
       { name: 'Python Project 2', description: 'Description of Python Project 2', image: 'python_project2.jpg' },
   ],
+  web: [
+    { name: 'Web Project 1', description: 'Description of Web Project 1', image: 'web_project1.jpg' },
+    { name: 'Web Project 2', description: 'Description of Web Project 2', image: 'web_project2.jpg' },
+  ],
+  others: [
+    { name: 'Others Project 1', description: 'Description of Web Others 1', image: 'others_project1.jpg' },
+    { name: 'Others Project 2', description: 'Description of Web Others 2', image: 'others_project2.jpg' },
+  ]
 };
 
 const arts = {
@@ -16,7 +24,7 @@ const arts = {
     "      |  |    /  ^  \\  \\\   \\\/   / /  ^  \\\    ",
     ".--.  |  |   /  /_\\\  \\\  \\\      / /  /_\\\  \\\   ",
     "|  `--'  |  /  _____  \\\  \\\    / /  _____  \\\  ",
-    "\\\______/  /__/     \\\__\\\  \\\__/ /__/     \\\__\\\ "
+    " \\\______/  /__/     \\\__\\\  \\\__/ /__/     \\\__\\\ "
 ],
 python: [
   ".______   ____    ____ .___________. __    __    ______   .__   __. ",
@@ -26,8 +34,22 @@ python: [
   "|  |          |  |         |  |     |  |  |  | |  `--'  | |  |\\   | ",
   "| _|          |__|         |__|     |__|  |__|  \\______/  |__| \\__| "
 ],
-  web: [],
-  others: []
+  web: [
+   " __    __  .___________..___  ___.  __          ___ ______     _______.     _______.     ___      __       _______.",
+   "|  |  |  | |           ||   \\/   | |  |        /  //      |   /       |    /       |    /  /     |  |     /       |",
+   "|  |__|  | `---|  |----`|  \\  /  | |  |       /  /|  ,----'  |   (----`   |   (----`   /  /      |  |    |   (----`",
+   "|   __   |     |  |     |  |\\/|  | |  |      /  / |  |        \\   \\        \\   \\      /  / .--.  |  |     \\   \\    ",
+   "|  |  |  |     |  |     |  |  |  | |  `----./  /  |  `----.----)   |   .----)   |    /  /  |  `--'  | .----)   |   ",
+   "|__|  |__|     |__|     |__|  |__| |_______/__/    \\______|_______/    |_______/    /__/    \\______/  |_______/    "                                                                                                                               
+  ],
+  others: [
+  "  ______   .___________. __    __   _______ .______          _______.",
+  " /  __  \\  |           ||  |  |  | |   ____||   _  \\        /       |",
+  "|  |  |  | `---|  |----`|  |__|  | |  |__   |  |_)  |      |   (----`",
+  "|  |  |  |     |  |     |   __   | |   __|  |      /        \\   \\    ",
+  "|  `--'  |     |  |     |  |  |  | |  |____ |  |\\  \\----.----)   |   ",
+  " \\______/      |__|     |__|  |__| |_______|| _| `._____|_______/    ",
+  ]
 }
 
 function showProjects(language) {

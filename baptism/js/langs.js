@@ -1,20 +1,20 @@
 const projects = {
   java: [
-      { name: 'Computer Graphics', description: 'Wired 3D model with possible object translation/transformation and moving camera', image: 'https://i.imgur.com/FftgwY6.png' },
-      { name: 'Filling the n-square area with colour', description: 'Implementing filling algorhitms (Seed Fill, Scan-Line)', image: 'https://i.imgur.com/XQDt6oR.png' },
+      { name: 'Computer Graphics', description: 'Wired 3D model with possible object translation/transformation and moving camera', image: 'https://i.imgur.com/FftgwY6.png', url: 'https://github.com/jholaj/PGRF-task03' },
+      { name: 'Filling the n-square area with colour', description: 'Implementing filling algorhitms (Seed Fill, Scan-Line)', image: 'https://i.imgur.com/XQDt6oR.png', url: 'https://github.com/jholaj/PGRF-task02' },
   ],
   python: [
       { name: 'ASCII Generator', description: 'Convert Image to ASCII art', image: 'https://i.imgur.com/W03scPj.png' },
-      { name: 'Web for fictional bussiness - Django backend', description: 'Project for subject: E-technologies in trade and business. Fictional vinyl bussiness - Vinylotopia', image: 'python_project2.jpg' },
-      { name: 'Image Quality Measurement', description: 'Project for Practical Thesis. Measuring quality of the image with PSNR, SSIM and BRISQUE method', image: 'https://i.imgur.com/W03scPj.png' },
+      { name: 'Web for fictional bussiness - Django backend', description: 'Project for subject: E-technologies in trade and business. Fictional vinyl bussiness - Vinylotopia', image: 'python_project2.jpg', url: 'https://github.com/jholaj/ET_ESHOP' },
+      { name: 'Image Quality Measurement', description: 'Project for Practical Thesis. Measuring quality of the image with PSNR, SSIM and BRISQUE method', image: 'https://i.imgur.com/W03scPj.png', url: 'https://github.com/jholaj/IQM' },
   ],
   web: [
     { name: 'Portfolio', description: 'You are looking at it!', image: 'web_project1.jpg' },
-    { name: 'Web for fictional bussiness', description: 'Project for subject: E-technologies in trade and business. Fictional vinyl bussiness - Vinylotopia', image: 'web_project2.jpg' },
+    { name: 'Web for fictional bussiness', description: 'Project for subject: E-technologies in trade and business. Fictional vinyl bussiness - Vinylotopia', image: 'web_project2.jpg', url: 'https://github.com/jholaj/ET_ESHOP' },
   ],
   others: [
-    { name: 'Image Color Frequency Analyzer', description: 'Rust and GTK4 project showcasing the 100 most prevalent colors in RGBA image.', image: 'https://i.imgur.com/PZvFtBw.png' },
-    { name: 'Windows App Audio Ripper', description: 'Rippes audio of an app with given PID and gives output as .wav file. Rewrited sample windows.h program.', image: 'https://i.imgur.com/9liTkj7.png' },
+    { name: 'Image Color Frequency Analyzer', description: 'Rust and GTK4 project showcasing the 100 most prevalent colors in RGBA image.', image: 'https://i.imgur.com/PZvFtBw.png', url: 'https://github.com/jholaj/ColorFrequency' },
+    { name: 'Windows App Audio Ripper', description: 'Rippes audio of an app with given PID and gives output as .wav file. Rewrited sample windows.h program.', image: 'https://i.imgur.com/9liTkj7.png', url: 'https://github.com/jholaj/WindowsAudioRipper' },
   ]
 };
 
@@ -82,15 +82,20 @@ function showProjects(language) {
           const projectImage = document.createElement('img');
           projectImage.src = project.image;
 
-          const projectName = document.createElement('h3');
-          projectName.textContent = project.name;
+          const projectLink = document.createElement('a');
+          projectLink.href = project.url;
+          projectLink.textContent = project.name;
+          projectLink.id = 'project-name';
+          projectLink.style.textDecorationColor = artsColor[language]; //underline color same as lang
+          projectLink.style.textUnderlineOffset = '0.3em'; // moving underline down
 
           const projectDescription = document.createElement('p');
           projectDescription.textContent = project.description;
 
           projectCard.appendChild(projectImage);
-          projectCard.appendChild(projectName);
+          projectCard.appendChild(projectLink);
           projectCard.appendChild(projectDescription);
+          
           projectsContainer.appendChild(projectCard);
 
           function updateArtContainer() {

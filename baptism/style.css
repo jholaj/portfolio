@@ -44,12 +44,6 @@ hr {
 }
 
 .content {
-  margin-left: 20px;
-  margin-top: 50px;
-  position: relative;
-}
-
-.content {
   margin-top: 50px;
   margin-left: 20px;
   position: relative;
@@ -59,15 +53,12 @@ hr {
 .lang-button {
   display: inline-block;
   cursor: pointer;
+  position: relative; 
 }
 
 .lang-button:hover .underline {
   width: 100%; 
   transition: width 0.3s ease-in-out; 
-}
-
-.lang-button {
-  position: relative; 
 }
 
 .underline {
@@ -133,4 +124,10 @@ hr {
   opacity: 1;
   transform: translateY(0);
   transition-delay: 0.2s;
+}
+
+#project-name {
+  color:#FFF;
+  font-size: 1.2rem;
+  font-weight: bold;
 }

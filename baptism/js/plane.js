@@ -26,6 +26,7 @@ const planeEl = document.getElementById('plane-art');
 let position = 0;
 let wind = [];
 
+// random underscores
 function generateWind() {
   wind = [];
   for (let i = 0; i < plane.length; i++) {
@@ -37,6 +38,7 @@ function generateWind() {
   }
 }
 
+// moving them to simulate wind
 function movePlane() {
   generateWind();
 
@@ -54,3 +56,28 @@ function movePlane() {
 }
 
 setInterval(movePlane, 100);
+
+// plane animation out of the window
+document.addEventListener('DOMContentLoaded', function() {
+  const langButtons = document.querySelectorAll('.lang-button');
+  const planeArt = document.getElementById('plane-art');
+
+  langButtons.forEach(button => {
+      button.addEventListener('click', function() {
+          const windowWidth = window.innerWidth;
+
+          planeArt.style.transition = 'transform 1.5s ease-in-out'; 
+          planeArt.style.transform = `translateX(${windowWidth}px)`;
+
+          // Odstranit planeArt po dokončení animace nebo po určité době
+          const transitionEndHandler = function() {
+              planeArt.remove();
+          };
+
+          setTimeout(() => {
+            planeArt.removeEventListener('transitionend', transitionEndHandler);
+            planeArt.remove();
+        }, 650);
+      });
+  });
+});

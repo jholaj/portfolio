@@ -53,6 +53,7 @@ hr {
   margin-top: 50px;
   margin-left: 20px;
   position: relative;
+  overflow-x: hidden;
 }
 
 .lang-button {
@@ -76,4 +77,60 @@ hr {
   height: 2px; 
   width: 0; 
   transition: width 0.3s ease-in-out; 
+}
+
+.projects {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* space between cards */
+}
+
+#projects-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card {
+  flex: 1 0 calc(33.3%); 
+  box-sizing: border-box;
+  overflow: hidden;
+  border: 1px solid #ddd; 
+  opacity: 0;
+  transform: translateY(100px);
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.project-card.show {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.2s;
+}
+
+.project-card img {
+  width: 100%;
+  height: auto;
+  max-height: 200px; 
+  object-fit: cover; 
+}
+
+.project-card h3, .project-card p {
+  padding: 10px;
+  margin: 0;
+}
+
+#ascii-art-container {
+  white-space: pre;
+  text-align: center;
+  font-family: monospace;
+  margin-bottom: 20px;
+  position: relative;
+  opacity: 0;
+  transform: translateY(100px);
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+#ascii-art-container.show {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.2s;
 }

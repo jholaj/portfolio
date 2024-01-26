@@ -84,6 +84,7 @@ function showProjects(language) {
 
           const projectLink = document.createElement('a');
           projectLink.href = project.url;
+          projectLink.target = '_blank';
           projectLink.textContent = project.name;
           projectLink.id = 'project-name';
           projectLink.style.textDecorationColor = artsColor[language]; //underline color same as lang

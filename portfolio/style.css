@@ -1,0 +1,133 @@
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 50px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #999;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+nav ul li a:hover {
+  color: #fff;
+}
+
+
+body {
+  font-family: 'Courier New', monospace;
+  background-color: #000;
+  color: #FFF;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+hr {
+  width: 50%;
+}
+
+.content {
+  margin-top: 50px;
+  margin-left: 20px;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.lang-button {
+  display: inline-block;
+  cursor: pointer;
+  position: relative; 
+}
+
+.lang-button:hover .underline {
+  width: 100%; 
+  transition: width 0.3s ease-in-out; 
+}
+
+.underline {
+  position: absolute; 
+  bottom: 0;
+  left: 0;
+  height: 2px; 
+  width: 0; 
+  transition: width 0.3s ease-in-out; 
+}
+
+.projects {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px; /* space between cards */
+}
+
+#projects-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card {
+  flex: 0 0 calc(25%); 
+  box-sizing: border-box;
+  overflow: hidden;
+  border: 1px solid #ddd; 
+  opacity: 0;
+  transform: translateY(100px);
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.project-card.show {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.2s;
+}
+
+.project-card img {
+  width: 100%;
+  height: auto;
+  object-fit: cover; 
+}
+
+.project-card h3, .project-card p {
+  padding: 10px;
+  margin: 0;
+}
+
+#ascii-art-container {
+  white-space: pre;
+  text-align: center;
+  font-family: monospace;
+  margin-bottom: 20px;
+  position: relative;
+  opacity: 0;
+  transform: translateY(100px);
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+#ascii-art-container.show {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.2s;
+}
+
+#project-name {
+  color:#FFF;
+  font-size: 1.2rem;
+  font-weight: bold;
+}

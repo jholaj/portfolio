@@ -5,12 +5,12 @@ const projects = {
   ],
   python: [
       { name: 'ASCII Generator', description: 'Convert Image to ASCII art easily', image: 'https://i.imgur.com/W03scPj.png' },
-      { name: 'Web for fictional bussiness', description: '<b>USED TECHNOLOGIES: Django</b><br>Project for subject: E-technologies in trade and business. Fictional vinyl bussiness - Vinylotopia', image: 'python_project2.jpg', url: 'https://github.com/jholaj/ET_ESHOP' },
+      { name: 'Web for fictional bussiness', description: '<b>USED TECHNOLOGIES: Django</b><br>Project for subject: E-technologies in trade and business. Fictional vinyl bussiness - Vinylotopia', image: 'https://i.imgur.com/aYUxRri.png', url: 'https://github.com/jholaj/ET_ESHOP' },
       { name: 'Image Quality Measurement', description: 'Project for Practical Thesis. Measuring quality of the image with PSNR, SSIM and BRISQUE method', image: 'https://i.imgur.com/kmfyrlz.png', url: 'https://github.com/jholaj/IQM' },
   ],
   web: [
-    { name: 'Portfolio', description: 'You are looking at it!', image: 'https://i.imgur.com/VFSXrPx.png', url: 'https://github.com/jholaj/baptism' },
-    { name: 'Web for fictional bussiness', description: '<b>USED TECHNOLOGIES: Django</b><br>Project for subject: E-technologies in trade and business. Fictional vinyl bussiness - Vinylotopia', image: 'web_project2.jpg', url: 'https://github.com/jholaj/ET_ESHOP' },
+    { name: 'Portfolio', description: 'You are looking at it!', image: 'https://i.imgur.com/VFSXrPx.png', url: 'https://github.com/jholaj/portfolio' },
+    { name: 'Web for fictional bussiness', description: '<b>USED TECHNOLOGIES: Django</b><br>Project for subject: E-technologies in trade and business. Fictional vinyl bussiness - Vinylotopia', image: 'https://i.imgur.com/aYUxRri.png', url: 'https://github.com/jholaj/ET_ESHOP' },
   ],
   others: [
     { name: 'Image Color Frequency Analyzer', description: '<b>USED TECHNOLOGIES: RUST, GTK4</b><br> Showcasing the 100 most prevalent colors in RGBA image.', image: 'https://i.imgur.com/PZvFtBw.png', url: 'https://github.com/jholaj/ColorFrequency' },

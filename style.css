@@ -1,5 +1,5 @@
 nav {
-  position: fixed;
+  position: absolute;
   top: 0;
   width: 100%;
   padding: 20px;
@@ -48,6 +48,8 @@ hr {
   margin-left: 20px;
   position: relative;
   overflow-x: hidden;
+  width: 70%;
+  max-width: 1200px;
 }
 
 .lang-button {
@@ -83,7 +85,7 @@ hr {
 }
 
 .project-card {
-  flex: 0 0 calc(25%); 
+  flex: 0 0 calc(33%); 
   box-sizing: border-box;
   overflow: hidden;
   border: 1px solid #ddd; 
@@ -130,4 +132,5 @@ hr {
   color:#FFF;
   font-size: 1.2rem;
   font-weight: bold;
+  margin: 10px;
 }

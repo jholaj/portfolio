@@ -1,20 +1,22 @@
 const projects = {
   java: [
-      { name: 'Computer Graphics', description: 'Wired 3D model with possible object translation/transformation and moving camera', image: 'https://i.imgur.com/FftgwY6.png', url: 'https://github.com/jholaj/PGRF-task03' },
-      { name: 'Filling the n-square area with colour', description: 'Implementing filling algorhitms (Seed Fill, Scan-Line)', image: 'https://i.imgur.com/XQDt6oR.png', url: 'https://github.com/jholaj/PGRF-task02' },
+      { name: 'Computer Graphics', description: 'Wired 3D model with possible object translation/transformation and moving camera.', image: 'https://i.imgur.com/FftgwY6.png', url: 'https://github.com/jholaj/PGRF-task03' },
+      { name: 'Filling the n-square area with colour', description: 'Implementing filling algorhitms (Seed Fill, Scan-Line).', image: 'https://i.imgur.com/XQDt6oR.png', url: 'https://github.com/jholaj/PGRF-task02' },
   ],
   python: [
-      { name: 'ASCII Generator', description: 'Convert Image to ASCII art easily', image: 'https://i.imgur.com/W03scPj.png' },
-      { name: 'Web for fictional bussiness', description: '<b>USED TECHNOLOGIES: Django</b><br>Project for subject: E-technologies in trade and business. Fictional vinyl bussiness - Vinylotopia', image: 'https://i.imgur.com/aYUxRri.png', url: 'https://github.com/jholaj/ET_ESHOP' },
-      { name: 'Image Quality Measurement', description: 'Project for Practical Thesis. Measuring quality of the image with PSNR, SSIM and BRISQUE method', image: 'https://i.imgur.com/kmfyrlz.png', url: 'https://github.com/jholaj/IQM' },
+      { name: 'ASCII Generator', description: 'Convert Image to ASCII art easily.', image: 'https://i.imgur.com/W03scPj.png', url: 'https://github.com/jholaj/ASCIIGenerator' },
+      { name: 'Web for fictional bussiness', description: '<b>USED TECHNOLOGIES: Django</b><br>Project for subject: E-technologies in trade and business. Fictional vinyl bussiness - Vinylotopia.', image: 'https://i.imgur.com/aYUxRri.png', url: 'https://github.com/jholaj/ET_ESHOP' },
+      { name: 'Image Quality Measurement', description: 'Project for Practical Thesis. Measuring quality of the image with PSNR, SSIM and BRISQUE method.', image: 'https://i.imgur.com/kmfyrlz.png', url: 'https://github.com/jholaj/IQM' },
+      { name: 'Music To Phone Downloader', description: 'App for my family. Downloading music from Youtube and trasnfer to phone via SSH.', image: 'https://i.imgur.com/V5kZTme.png', url: 'https://github.com/jholaj/MusicToPhoneDownloader'}
   ],
   web: [
-    { name: 'Portfolio', description: 'You are looking at it!', image: 'https://i.imgur.com/VFSXrPx.png', url: 'https://github.com/jholaj/portfolio' },
-    { name: 'Web for fictional bussiness', description: '<b>USED TECHNOLOGIES: Django</b><br>Project for subject: E-technologies in trade and business. Fictional vinyl bussiness - Vinylotopia', image: 'https://i.imgur.com/aYUxRri.png', url: 'https://github.com/jholaj/ET_ESHOP' },
+      { name: 'Portfolio', description: 'You are looking at it!', image: 'https://i.imgur.com/VFSXrPx.png', url: 'https://github.com/jholaj/portfolio' },
+      { name: 'Web for fictional bussiness', description: '<b>USED TECHNOLOGIES: Django</b><br>Project for subject: E-technologies in trade and business. Fictional vinyl bussiness - Vinylotopia.', image: 'https://i.imgur.com/aYUxRri.png', url: 'https://github.com/jholaj/ET_ESHOP' },
   ],
   others: [
-    { name: 'Image Color Frequency Analyzer', description: '<b>USED TECHNOLOGIES: RUST, GTK4</b><br> Showcasing the 100 most prevalent colors in RGBA image.', image: 'https://i.imgur.com/PZvFtBw.png', url: 'https://github.com/jholaj/ColorFrequency' },
-    { name: 'Windows App Audio Ripper', description: '<b>USED TECHNOLOGIES: C++</b><br> Rippes audio of an app with given PID and gives output as .wav file. Rewrited sample windows.h program.', image: 'https://i.imgur.com/9liTkj7.png', url: 'https://github.com/jholaj/WindowsAudioRipper' },
+      { name: 'Image Color Frequency Analyzer', description: '<b>USED TECHNOLOGIES: RUST, GTK4</b><br> Showcasing the 100 most prevalent colors in RGBA image.', image: 'https://i.imgur.com/PZvFtBw.png', url: 'https://github.com/jholaj/ColorFrequency' },
+      { name: 'Simple JPEG Compress', description: '<b>USED TECHNOLOGIES: C++</b><br> Attempt of recreating JPEG compress algorhitm from scratch. Non-functional for now.', image: 'https://i.imgur.com/oxb5iO3.png', url: 'https://github.com/jholaj/SimpleJPEGCompress'},
+      { name: 'Windows App Audio Ripper', description: '<b>USED TECHNOLOGIES: C++</b><br> Rippes audio of an app with given PID and gives output as .wav file. Rewrited sample of windows.h program.', image: 'https://i.imgur.com/9liTkj7.png', url: 'https://github.com/jholaj/WindowsAudioRipper' },
   ]
 };
 
@@ -79,6 +81,10 @@ function showProjects(language) {
           const projectCard = document.createElement('div');
           projectCard.classList.add('project-card');
 
+          const projectImageLink = document.createElement('a');
+          projectImageLink.href = project.url; 
+          projectImageLink.target = '_blank'; 
+
           const projectImage = document.createElement('img');
           projectImage.src = project.image;
 
@@ -102,9 +108,12 @@ function showProjects(language) {
           const projectDescription = document.createElement('p');
           projectDescription.innerHTML = project.description;
 
+          projectCard.appendChild(projectImageLink);
           projectCard.appendChild(projectImage);
           projectCard.appendChild(projectLink);
           projectCard.appendChild(projectDescription);
+          projectImageLink.appendChild(projectImage); // Append the image to the anchor element
+
           
           projectsContainer.appendChild(projectCard);
 

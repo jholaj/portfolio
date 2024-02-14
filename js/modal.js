@@ -27,13 +27,36 @@ closeButton.onclick = function() {
 
 var pdfButton = modal.querySelector("#pdfButton");
 pdfButton.onclick = function() {
-  // pdf download
+  downloadFileFromServer("Resume_Holaj.pdf")
 };
 
 var docxButton = modal.querySelector("#docxButton");
 docxButton.onclick = function() {
-  // docx download
+  downloadFileFromServer("Resume_Holaj.docx")
 };
+
+function downloadFileFromServer(filename) {
+  fetch("static/" + filename)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return response.blob();
+    })
+    .then(blob => {
+      var url = window.URL.createObjectURL(blob);
+      var a = document.createElement("a");
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      window.URL.revokeObjectURL(url);
+      document.body.removeChild(a);
+    })
+    .catch(error => {
+      console.error('There has been a problem with your fetch operation:', error);
+    });
+}
 
 
 // blue background after hover

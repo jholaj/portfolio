@@ -137,6 +137,8 @@ hr {
   margin: 10px;
 }
 
+/* solve to blur only some parts of page on scroll */
+
 .modal {
   display: none;
   position: fixed;

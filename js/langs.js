@@ -7,7 +7,8 @@ const projects = {
       { name: 'ASCII Generator', description: 'Convert Image to ASCII art easily.', image: 'https://i.imgur.com/W03scPj.png', url: 'https://github.com/jholaj/ASCIIGenerator' },
       { name: 'Web for fictional bussiness', description: '<b>USED TECHNOLOGIES: Django</b><br>Project for subject: E-technologies in trade and business. Fictional vinyl bussiness - Vinylotopia.', image: 'https://i.imgur.com/aYUxRri.png', url: 'https://github.com/jholaj/ET_ESHOP' },
       { name: 'Image Quality Measurement', description: 'Project for Practical Thesis. Measuring quality of the image with PSNR, SSIM and BRISQUE method.', image: 'https://i.imgur.com/kmfyrlz.png', url: 'https://github.com/jholaj/IQM' },
-      { name: 'Music To Phone Downloader', description: 'App for my family. Downloading music from YouTube and transfer to phone via SSH.', image: 'https://i.imgur.com/V5kZTme.png', url: 'https://github.com/jholaj/MusicToPhoneDownloader'}
+      { name: 'Music To Phone Downloader', description: 'App for my family. Downloading music from YouTube and transfer to phone via SSH.', image: 'https://i.imgur.com/V5kZTme.png', url: 'https://github.com/jholaj/MusicToPhoneDownloader'},
+      { name: 'Mirror Folder', description: 'One-way periodical synchronization, that maintains a full, identical copy of source folder at replica folder. Includes logging of file: creation/removal/copying/modifying', image: 'https://i.imgur.com/GNTjxws.png', url: 'https://github.com/jholaj/MirrorFolder'}
   ],
   web: [
       { name: 'Portfolio', description: 'You are looking at it!', image: 'https://i.imgur.com/VFSXrPx.png', url: 'https://github.com/jholaj/portfolio' },

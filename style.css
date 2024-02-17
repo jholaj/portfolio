@@ -2,8 +2,8 @@ nav {
   position: absolute;
   top: 0;
   width: 100%;
-  padding: 20px;
   text-align: center;
+  padding-top: 20px;
 }
 
 nav ul {
@@ -207,4 +207,23 @@ hr {
   #ascii-art-container {
    font-size: 1.3vw;
   }
+}
+
+@media only screen and (max-width: 600px) {
+  body,html {
+    overflow-x: hidden;
+  }
+
+  #plane-art {
+    font-size: 1.2vh;
+  }
+
+  hr {
+    width: 80%;
+  }
+
+  nav ul li {
+    margin-right: 10px;
+  }
+  
 }

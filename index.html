@@ -1,18 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Jaroslav Holaj — Python developer from Czechia. Currently building AI-powered medical imaging software at Carebot.">
+  <meta name="author" content="Jaroslav Holaj">
+  <meta name="theme-color" content="#000000">
+  <meta property="og:title" content="Jaroslav Holaj — Software Engineer">
+  <meta property="og:description" content="Portfolio of Jaroslav Holaj — software engineer from Czechia.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='80' font-size='80' font-family='monospace' fill='white'%3E%3E_%3C/text%3E%3C/svg%3E">
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-FVHXEVGLFB"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-  
+
     gtag('config', 'G-FVHXEVGLFB', {cookie_flags: 'secure;samesite=none'});
   </script>
-  <title>CV</title>
+  <title>Jaroslav Holaj - Software Engineer</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -20,6 +27,7 @@
 <nav>
   <ul>
     <li><a href="index.html">Home</a></li>
+    <li><a href="#experience">Experience</a></li>
     <li><a href="https://github.com/jholaj" target="_blank">GitHub</a></li>
     <li><a href="https://www.linkedin.com/in/jaroslav-holaj-8a4294235/" target="_blank">LinkedIn</a></li>
     <li><a id="cvModal">CV</a></li>
@@ -28,25 +36,84 @@
 </nav>
 
 <div class="content">
-  <h2>Hi! I'm Jaroslav and I'm a <span id="age"></span> year old developer from Czechia <br> who uses 
-    <span class="lang-button" style="color: rgb(255 119 0);" data-panel="java">Java<span class="underline" style="background-color: rgb(199, 108, 28)"></span></span>,
-    <span class="lang-button" style="color: rgb(221, 197, 39);" data-panel="python">Python<span class="underline" style="background-color: rgb(221, 197, 39)"></span></span>,
-    <span class="lang-button" style="color: rgb(255, 0, 0);" data-panel="web">HTML/CSS/JS<span class="underline" style="background-color: rgb(211, 31, 31)"></span></span>,
-    and 
-    <span class="lang-button" style="color: rgb(31, 211, 154);" data-panel="others">others...<span class="underline" style="background-color: rgb(31, 211, 154)"></span></span>
+  <h2>Hi! I'm Jaroslav and I'm a <span id="age"></span> year old
+    <span class="lang-button" style="color: rgb(221, 197, 39);" data-panel="python">Python<span class="underline" style="background-color: rgb(221, 197, 39)"></span></span>
+    developer from Czechia<br>
+    who also works with
+    <span class="lang-button" style="color: rgb(31, 211, 154);" data-panel="others">Rust, C++, Java &amp; the web<span class="underline" style="background-color: rgb(31, 211, 154)"></span></span>
   </h2>
+  <p class="tagline"><span class="prompt">></span> currently building AI-powered medical imaging software at <a href="https://www.carebot.com" target="_blank">Carebot</a></p>
 
   <div id="ascii-art-container"></div>
   <pre id="plane-art"></pre>
   <div id="projects-container" class="projects">
     <!-- Projects -->
   </div>
-  
+
+  <section id="experience" class="experience">
+    <h2 class="section-title">Work Experience</h2>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-role">Software Engineer</span>
+        <a class="job-company" href="https://www.carebot.com" target="_blank">@ Carebot</a>
+        <span class="job-type">full-time</span>
+        <span class="job-dates">2024 - present</span>
+      </div>
+      <ul class="job-points">
+        <li>Building AI-powered software for medical imaging diagnostics (radiology).</li>
+        <li>Developing and maintaining services that bring machine learning models into everyday clinical practice.</li>
+        <li>Working with medical imaging standards and hospital system integrations (DICOM, PACS).</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-role">Software Engineer</span>
+        <a class="job-company" href="https://www.knorr-bremse.com" target="_blank">@ Knorr-Bremse</a>
+        <span class="job-type">part-time</span>
+        <span class="job-dates">2022 - 2023</span>
+      </div>
+      <ul class="job-points">
+        <li>Started as a backend Django developer, transitioned to full-stack.</li>
+        <li>Developed internal web applications (ticketing system, carpool, changeover time tracking).</li>
+        <li>Automated testing of web apps with Robot Framework.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-role">Excel/VBA Developer</span>
+        <a class="job-company" href="https://www.chartindustries.com" target="_blank">@ Chart Ferox</a>
+        <span class="job-type">part-time</span>
+        <span class="job-dates">2020 - 2022</span>
+      </div>
+      <ul class="job-points">
+        <li>Automated calculations of physical material properties in Excel, improving speed and usability.</li>
+        <li>Redesigned legacy spreadsheets and wrote user documentation.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="opensource" class="experience">
+    <h2 class="section-title">Open Source</h2>
+    <p class="section-subtitle">Pull requests to projects I use.</p>
+    <div id="contrib-container"></div>
+  </section>
+
+  <footer>
+    <hr>
+    <p>© <span id="year"></span> Jaroslav Holaj · <a href="https://github.com/jholaj/portfolio" target="_blank">source</a></p>
+  </footer>
 
   <script type="text/javascript" src="js/age.js"></script>
   <script type="text/javascript" src="js/plane.js"></script>
   <script type="text/javascript" src="js/langs.js"></script>
   <script type="text/javascript" src="js/modal.js"></script>
-
+  <script type="text/javascript" src="js/contributions.js"></script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 
 </div>
+
+</body>
+</html>

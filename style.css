@@ -30,6 +30,10 @@ nav ul li a:hover {
 }
 
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: 'Courier New', monospace;
   background-color: #000;
@@ -39,6 +43,11 @@ body {
   justify-content: center;
   text-align: center;
   overflow-x: hidden;
+}
+
+::selection {
+  background-color: #fff;
+  color: #000;
 }
 
 hr {
@@ -66,12 +75,28 @@ hr {
 }
 
 .underline {
-  position: absolute; 
+  position: absolute;
   bottom: 0;
   left: 0;
-  height: 2px; 
-  width: 0; 
-  transition: width 0.3s ease-in-out; 
+  height: 2px;
+  width: 0;
+  transition: width 0.3s ease-in-out;
+}
+
+/* one-time pulse after load to hint the words are clickable */
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes hint-underline {
+    0%, 100% { width: 0; }
+    50% { width: 100%; }
+  }
+
+  .underline {
+    animation: hint-underline 1.4s ease-in-out 1s 1;
+  }
+
+  .lang-button[data-panel="others"] .underline {
+    animation-delay: 1.9s;
+  }
 }
 
 .projects {
@@ -113,6 +138,12 @@ hr {
   margin: 0;
 }
 
+.project-card .project-tech {
+  color: #999;
+  font-size: 0.9rem;
+  padding: 5px 10px 0;
+}
+
 #ascii-art-container {
   white-space: pre;
   text-align: center;
@@ -135,6 +166,177 @@ hr {
   font-size: 1.2rem;
   font-weight: bold;
   margin: 10px;
+}
+
+.tagline {
+  color: #999;
+  margin: -10px 0 40px;
+}
+
+.tagline a {
+  color: rgb(31, 211, 154);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.tagline a:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.3em;
+}
+
+.experience {
+  margin-top: 80px;
+  text-align: left;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.prompt {
+  color: rgb(31, 211, 154);
+}
+
+.job {
+  border-left: 2px solid #333;
+  padding: 5px 0 5px 25px;
+  margin: 0 auto 35px;
+  max-width: 700px;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.job:hover {
+  border-left-color: rgb(31, 211, 154);
+}
+
+.job-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.job-role {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.job-company {
+  color: rgb(31, 211, 154);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.job-company:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.3em;
+}
+
+.job-type {
+  color: #999;
+  font-size: 0.9rem;
+  border: 1px solid #444;
+  border-radius: 3px;
+  padding: 1px 8px;
+}
+
+.job-dates {
+  color: #999;
+  margin-left: auto;
+}
+
+.job-points {
+  color: #ccc;
+  margin: 10px 0 0;
+  padding-left: 20px;
+}
+
+.job-points li {
+  margin-bottom: 5px;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: #999;
+  margin: -10px 0 30px;
+}
+
+.contrib {
+  text-align: left;
+  border-left: 2px solid #333;
+  padding: 8px 0 8px 25px;
+  margin: 0 auto 25px;
+  max-width: 700px;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.contrib:hover {
+  border-left-color: rgb(31, 211, 154);
+}
+
+.contrib-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.contrib-repo {
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.1rem;
+  text-decoration: none;
+}
+
+.contrib-repo:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.3em;
+}
+
+.contrib-desc {
+  color: #999;
+  margin: 5px 0;
+}
+
+.contrib-title {
+  display: inline-block;
+  color: #ccc;
+  text-decoration: none;
+  margin-top: 3px;
+}
+
+.contrib-title:hover {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 0.3em;
+}
+
+.contrib-status {
+  margin-left: auto;
+  font-weight: bold;
+}
+
+.contrib-status.merged {
+  color: #a371f7; /* GitHub merged purple */
+}
+
+.contrib-status.open {
+  color: rgb(31, 211, 154);
+}
+
+footer {
+  margin-top: 60px;
+  padding-bottom: 30px;
+  color: #999;
+}
+
+footer a {
+  color: #999;
+}
+
+footer a:hover {
+  color: #fff;
 }
 
 .modal {
@@ -225,5 +427,26 @@ hr {
   nav ul li {
     margin-right: 10px;
   }
-  
+
+  nav ul li a {
+    font-size: 1.1rem;
+  }
+
+  .job {
+    padding-left: 15px;
+  }
+
+  .job-dates {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .contrib {
+    padding-left: 15px;
+  }
+
+  .contrib-status {
+    margin-left: 0;
+  }
+
 }

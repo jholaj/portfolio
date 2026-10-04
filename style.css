@@ -10,23 +10,33 @@ nav ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
-}
-
-nav ul li {
-  display: inline;
-  margin-right: 50px;
-  cursor: pointer; /* for CV */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 32px;
 }
 
 nav ul li a {
   text-decoration: none;
   color: #999;
-  font-weight: bold;
-  font-size: 1.5rem;
+  font-size: 1rem;
 }
 
-nav ul li a:hover {
-  color: #fff;
+
+/* terminal-style highlight: blue background on hover */
+nav ul li a:hover,
+.lang-button:hover,
+.tagline a:hover,
+.job-company:hover,
+.contrib-repo:hover,
+.contrib-title:hover,
+#project-name:hover,
+footer a:hover,
+.modal-box a:hover,
+#close:hover {
+  background-color: blue;
+  color: #fff !important; /* beats the inline lang colors on .lang-button */
+  box-shadow: 0 0 0 3px blue; /* pads the highlight without shifting the layout */
 }
 
 
@@ -46,12 +56,14 @@ body {
 }
 
 ::selection {
-  background-color: #fff;
-  color: #000;
+  background-color: blue; /* same as the hover highlight */
+  color: #fff;
 }
 
 hr {
   width: 50%;
+  border: 0;
+  border-top: 1px solid #333;
 }
 
 .content {
@@ -69,8 +81,8 @@ hr {
   position: relative; 
 }
 
-.lang-button:hover .underline {
-  width: 100%; 
+.lang-button.active .underline {
+  width: 100%;
   transition: width 0.3s ease-in-out; 
 }
 
@@ -81,22 +93,6 @@ hr {
   height: 2px;
   width: 0;
   transition: width 0.3s ease-in-out;
-}
-
-/* one-time pulse after load to hint the words are clickable */
-@media (prefers-reduced-motion: no-preference) {
-  @keyframes hint-underline {
-    0%, 100% { width: 0; }
-    50% { width: 100%; }
-  }
-
-  .underline {
-    animation: hint-underline 1.4s ease-in-out 1s 1;
-  }
-
-  .lang-button[data-panel="others"] .underline {
-    animation-delay: 1.9s;
-  }
 }
 
 .projects {
@@ -112,10 +108,10 @@ hr {
 }
 
 .project-card {
-  flex: 0 0 calc(33%); 
+  flex: 0 0 calc((100% - 40px) / 3); /* three per row, minus the two 20px gaps */
   box-sizing: border-box;
   overflow: hidden;
-  border: 1px solid #ddd; 
+  border: 1px solid #333;
   opacity: 0;
   transform: translateY(100px);
   transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
@@ -144,25 +140,13 @@ hr {
   padding: 5px 10px 0;
 }
 
-#ascii-art-container {
-  white-space: pre;
-  text-align: center;
-  font-family: monospace;
-  margin-bottom: 20px;
-  position: relative;
-  opacity: 0;
-  transform: translateY(100px);
-  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-}
-
-#ascii-art-container.show {
-  opacity: 1;
-  transform: translateY(0);
-  transition-delay: 0.2s;
+#projects {
+  margin-top: 80px;
 }
 
 #project-name {
   color:#FFF;
+  text-decoration: none;
   font-size: 1.2rem;
   font-weight: bold;
   margin: 10px;
@@ -179,11 +163,6 @@ hr {
   font-weight: bold;
 }
 
-.tagline a:hover {
-  text-decoration: underline;
-  text-underline-offset: 0.3em;
-}
-
 .experience {
   margin-top: 80px;
   text-align: left;
@@ -198,16 +177,19 @@ hr {
   color: rgb(31, 211, 154);
 }
 
+/* two columns like a CV: dates on the left, the job on the right */
 .job {
-  border-left: 2px solid #333;
-  padding: 5px 0 5px 25px;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  align-items: baseline;
+  gap: 0 30px;
   margin: 0 auto 35px;
-  max-width: 700px;
-  transition: border-color 0.3s ease-in-out;
+  max-width: 800px;
 }
 
-.job:hover {
-  border-left-color: rgb(31, 211, 154);
+.job-meta {
+  display: flex;
+  flex-direction: column;
 }
 
 .job-header {
@@ -228,22 +210,13 @@ hr {
   font-weight: bold;
 }
 
-.job-company:hover {
-  text-decoration: underline;
-  text-underline-offset: 0.3em;
-}
-
 .job-type {
-  color: #999;
+  color: #777;
   font-size: 0.9rem;
-  border: 1px solid #444;
-  border-radius: 3px;
-  padding: 1px 8px;
 }
 
 .job-dates {
   color: #999;
-  margin-left: auto;
 }
 
 .job-points {
@@ -264,15 +237,8 @@ hr {
 
 .contrib {
   text-align: left;
-  border-left: 2px solid #333;
-  padding: 8px 0 8px 25px;
-  margin: 0 auto 25px;
-  max-width: 700px;
-  transition: border-color 0.3s ease-in-out;
-}
-
-.contrib:hover {
-  border-left-color: rgb(31, 211, 154);
+  margin: 0 auto 30px;
+  max-width: 800px;
 }
 
 .contrib-header {
@@ -289,32 +255,30 @@ hr {
   text-decoration: none;
 }
 
-.contrib-repo:hover {
-  text-decoration: underline;
-  text-underline-offset: 0.3em;
-}
-
 .contrib-desc {
   color: #999;
   margin: 5px 0;
 }
 
-.contrib-title {
-  display: inline-block;
-  color: #ccc;
-  text-decoration: none;
+.contrib-pr {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
   margin-top: 3px;
 }
 
-.contrib-title:hover {
-  color: #fff;
-  text-decoration: underline;
-  text-underline-offset: 0.3em;
+.contrib-title {
+  display: inline-block;
+  min-width: 0; /* let long titles shrink next to the status */
+  overflow-wrap: anywhere;
+  color: #ccc;
+  text-decoration: none;
 }
 
 .contrib-status {
   margin-left: auto;
   font-weight: bold;
+  white-space: nowrap;
 }
 
 .contrib-status.merged {
@@ -335,45 +299,43 @@ footer a {
   color: #999;
 }
 
-footer a:hover {
-  color: #fff;
-}
-
 .modal {
-  display: none;
   position: fixed;
+  inset: 0;
   z-index: 1;
-  width: 100vw;
-  height: 100vh;
-  overflow: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: rgba(0, 0, 0, 0.8); /* 0.8 => alpha channel */
   backdrop-filter: blur(8px); /* background blur */
-  white-space: pre; /* for ascii formatting [inner html will appear as you see in modal.js] */
+}
+
+.modal[hidden] {
+  display: none;
+}
+
+.modal-box {
+  margin: 0;
+  text-align: left;
+  font-family: 'Courier New', monospace;
   font-size: 1.2rem;
 }
 
-.modal-content {
-  margin: 15% auto;
-  padding: 20px;
-  border: 1px solid #ffffff;
-  width: 80%;
-  text-align: center;
-  color: white;
+.modal-box a {
+  color: #fff;
+  text-decoration: none;
 }
 
-#pdfButton, #docxButton, #close {
+#close {
+  padding: 0;
   border: none;
-  background-color: inherit;
+  background: none;
+  color: inherit;
+  font: inherit; /* buttons don't inherit the body font */
   cursor: pointer;
-  color: white;
-  font-family: 'Courier New', monospace; /* somehow button resets styling for body */
-  font-size: 1.2rem;
 }
 
 @media only screen and (max-width:1100px){
-  #ascii-art-container {
-    font-size: 1.3vw;
-  }
   .content {
     margin-left: 10px;
     width: 90%;
@@ -387,10 +349,16 @@ footer a:hover {
 }
 
 @media only screen and (max-width: 800px) {
-  nav ul li {
-    margin-right: 20px;
+  .job {
+    grid-template-columns: 1fr;
   }
-  
+
+  .job-meta {
+    flex-direction: row;
+    gap: 12px;
+    margin-bottom: 4px;
+  }
+
   .content {
     margin-left: 10px;
     width: 90%;
@@ -404,10 +372,6 @@ footer a:hover {
   .project-card {
     flex: 0 0 calc(100% - 20px);
     margin-bottom: 20px;
-  }
-  
-  #ascii-art-container {
-   font-size: 1.3vw;
   }
 }
 
@@ -424,25 +388,16 @@ footer a:hover {
     width: 80%;
   }
 
-  nav ul li {
-    margin-right: 10px;
+  nav ul {
+    gap: 6px 10px;
   }
 
   nav ul li a {
-    font-size: 1.1rem;
+    font-size: 0.8rem;
   }
 
-  .job {
-    padding-left: 15px;
-  }
-
-  .job-dates {
-    margin-left: 0;
-    width: 100%;
-  }
-
-  .contrib {
-    padding-left: 15px;
+  .modal-box {
+    font-size: 1rem;
   }
 
   .contrib-status {

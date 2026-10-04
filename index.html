@@ -9,16 +9,15 @@
   <meta property="og:title" content="Jaroslav Holaj — Software Engineer">
   <meta property="og:description" content="Portfolio of Jaroslav Holaj — software engineer from Czechia.">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://jholaj.github.io/portfolio/">
+  <meta property="og:image" content="https://jholaj.github.io/portfolio/static/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://jholaj.github.io/portfolio/">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='80' font-size='80' font-family='monospace' fill='white'%3E%3E_%3C/text%3E%3C/svg%3E">
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FVHXEVGLFB"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-FVHXEVGLFB', {cookie_flags: 'secure;samesite=none'});
-  </script>
+  <!-- GoatCounter: cookieless analytics, no consent banner needed -->
+  <script data-goatcounter="https://jholaj.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
   <title>Jaroslav Holaj - Software Engineer</title>
   <link rel="stylesheet" href="style.css">
 </head>
@@ -26,73 +25,101 @@
 
 <nav>
   <ul>
-    <li><a href="index.html">Home</a></li>
     <li><a href="#experience">Experience</a></li>
-    <li><a href="https://github.com/jholaj" target="_blank">GitHub</a></li>
-    <li><a href="https://www.linkedin.com/in/jaroslav-holaj-8a4294235/" target="_blank">LinkedIn</a></li>
-    <li><a id="cvModal">CV</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="https://github.com/jholaj" target="_blank" data-goatcounter-click="github">GitHub</a></li>
+    <li><a href="https://www.linkedin.com/in/jaroslav-holaj-8a4294235/" target="_blank" data-goatcounter-click="linkedin">LinkedIn</a></li>
+    <li><a href="mailto:jaraholaj@seznam.cz" data-goatcounter-click="email">Email</a></li>
+    <li><a id="cvLink" href="static/Resume_Holaj.pdf" target="_blank" data-goatcounter-click="cv-open">CV</a></li>
   </ul>
   <hr>
 </nav>
 
+<!-- CV format picker; without JS the CV link above just opens the PDF -->
+<div id="cvModal" class="modal" hidden>
+<pre class="modal-box">__________________________________
+|                            <button id="close" aria-label="Close">[X]</button> |
+|   Choose file format:          |
+|                                |
+|     <a href="static/Resume_Holaj.pdf" target="_blank" data-goatcounter-click="cv-pdf">[PDF]</a>          <a href="static/Resume_Holaj.docx" download data-goatcounter-click="cv-docx">[DOCX]</a>      |
+|________________________________|</pre>
+</div>
+
 <div class="content">
   <h2>Hi! I'm Jaroslav and I'm a <span id="age"></span> year old
-    <span class="lang-button" style="color: rgb(221, 197, 39);" data-panel="python">Python<span class="underline" style="background-color: rgb(221, 197, 39)"></span></span>
-    developer from Czechia<br>
+    <span style="color: rgb(221, 197, 39);">Python</span> developer from Czechia<br>
     who also works with
-    <span class="lang-button" style="color: rgb(31, 211, 154);" data-panel="others">Rust, C++, Java &amp; the web<span class="underline" style="background-color: rgb(31, 211, 154)"></span></span>
+    Rust, C++, Java &amp; the web
   </h2>
   <p class="tagline"><span class="prompt">></span> currently building AI-powered medical imaging software at <a href="https://www.carebot.com" target="_blank">Carebot</a></p>
 
-  <div id="ascii-art-container"></div>
   <pre id="plane-art"></pre>
-  <div id="projects-container" class="projects">
-    <!-- Projects -->
-  </div>
 
   <section id="experience" class="experience">
     <h2 class="section-title">Work Experience</h2>
 
     <div class="job">
-      <div class="job-header">
-        <span class="job-role">Software Engineer</span>
-        <a class="job-company" href="https://www.carebot.com" target="_blank">@ Carebot</a>
+      <div class="job-meta">
+        <span class="job-dates">May 2024 - present</span>
         <span class="job-type">full-time</span>
-        <span class="job-dates">2024 - present</span>
       </div>
-      <ul class="job-points">
-        <li>Building AI-powered software for medical imaging diagnostics (radiology).</li>
-        <li>Developing and maintaining services that bring machine learning models into everyday clinical practice.</li>
-        <li>Working with medical imaging standards and hospital system integrations (DICOM, PACS).</li>
-      </ul>
+      <div class="job-body">
+        <div class="job-header">
+          <span class="job-role">Software Engineer</span>
+          <a class="job-company" href="https://www.carebot.com" target="_blank">@ Carebot</a>
+        </div>
+        <ul class="job-points">
+          <li>Building and maintaining AI-powered software that brings machine learning models into everyday clinical radiology practice.</li>
+          <li>Designed and built from scratch an end-to-end snapshot testing suite for DICOMweb and DIMSE integrations.</li>
+          <li>Working with medical imaging standards and hospital system integrations (DICOM, PACS).</li>
+        </ul>
+      </div>
     </div>
 
     <div class="job">
-      <div class="job-header">
-        <span class="job-role">Software Engineer</span>
-        <a class="job-company" href="https://www.knorr-bremse.com" target="_blank">@ Knorr-Bremse</a>
+      <div class="job-meta">
+        <span class="job-dates">Jul 2022 - Sep 2023</span>
         <span class="job-type">part-time</span>
-        <span class="job-dates">2022 - 2023</span>
       </div>
-      <ul class="job-points">
-        <li>Started as a backend Django developer, transitioned to full-stack.</li>
-        <li>Developed internal web applications (ticketing system, carpool, changeover time tracking).</li>
-        <li>Automated testing of web apps with Robot Framework.</li>
-      </ul>
+      <div class="job-body">
+        <div class="job-header">
+          <span class="job-role">Software Engineer</span>
+          <a class="job-company" href="https://www.knorr-bremse.com" target="_blank">@ Knorr-Bremse</a>
+        </div>
+        <ul class="job-points">
+          <li>Started as a backend Django developer, transitioned to full-stack.</li>
+          <li>Developed internal web applications (ticketing system, carpool, changeover time tracking).</li>
+          <li>Automated testing of web apps with Robot Framework.</li>
+        </ul>
+      </div>
     </div>
 
     <div class="job">
-      <div class="job-header">
-        <span class="job-role">Excel/VBA Developer</span>
-        <a class="job-company" href="https://www.chartindustries.com" target="_blank">@ Chart Ferox</a>
+      <div class="job-meta">
+        <span class="job-dates">Sep 2020 - Sep 2022</span>
         <span class="job-type">part-time</span>
-        <span class="job-dates">2020 - 2022</span>
       </div>
-      <ul class="job-points">
-        <li>Automated calculations of physical material properties in Excel, improving speed and usability.</li>
-        <li>Redesigned legacy spreadsheets and wrote user documentation.</li>
-      </ul>
+      <div class="job-body">
+        <div class="job-header">
+          <span class="job-role">Excel/VBA Developer</span>
+          <a class="job-company" href="https://www.chartindustries.com" target="_blank">@ Chart Ferox</a>
+        </div>
+        <ul class="job-points">
+          <li>Automated calculations of physical material properties in Excel, improving speed and usability.</li>
+          <li>Redesigned legacy spreadsheets and wrote user documentation.</li>
+        </ul>
+      </div>
     </div>
+  </section>
+
+  <section id="projects">
+    <h2 class="section-title">Projects</h2>
+    <p class="section-subtitle">
+      <span class="lang-button" style="color: rgb(221, 197, 39);" data-panel="python">Python<span class="underline" style="background-color: rgb(221, 197, 39)"></span></span>
+      ·
+      <span class="lang-button" style="color: rgb(31, 211, 154);" data-panel="others">C++ &amp; Java<span class="underline" style="background-color: rgb(31, 211, 154)"></span></span>
+    </p>
+    <div id="projects-container" class="projects"></div>
   </section>
 
   <section id="opensource" class="experience">
@@ -103,14 +130,14 @@
 
   <footer>
     <hr>
-    <p>© <span id="year"></span> Jaroslav Holaj · <a href="https://github.com/jholaj/portfolio" target="_blank">source</a></p>
+    <p>© <span id="year"></span> Jaroslav Holaj · <a href="mailto:jaraholaj@seznam.cz" data-goatcounter-click="email-footer">jaraholaj@seznam.cz</a> · <a href="https://github.com/jholaj/portfolio" target="_blank">source</a></p>
   </footer>
 
   <script type="text/javascript" src="js/age.js"></script>
   <script type="text/javascript" src="js/plane.js"></script>
   <script type="text/javascript" src="js/langs.js"></script>
-  <script type="text/javascript" src="js/modal.js"></script>
   <script type="text/javascript" src="js/contributions.js"></script>
+  <script type="text/javascript" src="js/modal.js"></script>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 
 </div>

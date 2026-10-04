@@ -7,17 +7,29 @@ const descriptionOverrides = {
 
 // snapshot used when the GitHub API is unavailable (rate limit, offline...)
 const contributionsFallback = [
-  { repo: 'pydicom/pydicom', desc: 'Read, modify and write DICOM files with python code', title: 'Reduce peak memory usage in `apply_windowing`', url: 'https://github.com/pydicom/pydicom/pull/2315', status: 'open' },
-  { repo: 'pika/pika', desc: 'Pure Python RabbitMQ/AMQP 0-9-1 client library', title: 'Bound work queues in `ThreadSafe*` adapters', url: 'https://github.com/pika/pika/pull/1651', status: 'open' },
-  { repo: 'a-parida12/pdf2dcm', desc: 'Python Package for PDF to DICOM Conversion', title: 'Remove deprecated pydicom 3 attributes', url: 'https://github.com/a-parida12/pdf2dcm/pull/84', status: 'merged' },
+  { repo: 'pika/pika', desc: 'Pure Python RabbitMQ/AMQP 0-9-1 client library', title: 'Stop `StreamLostError` from hiding the original traceback', url: 'https://github.com/pika/pika/pull/1703', status: 'merged' },
+  { repo: 'Bogdanp/dramatiq', desc: 'A fast and reliable background task processing library for Python 3.', title: 'Share a single connection across all RabbitMQ consumers', url: 'https://github.com/Bogdanp/dramatiq/pull/883', status: 'open' },
+  { repo: 'pika/pika', desc: 'Pure Python RabbitMQ/AMQP 0-9-1 client library', title: 'Bound work queues in `ThreadSafe*` adapters.', url: 'https://github.com/pika/pika/pull/1651', status: 'merged' },
+  { repo: 'a-parida12/pdf2dcm', desc: 'Python Package for PDF to DICOM Conversion', title: 'Remove Dataset.is_little_endian/is_implicit_VR deprecated in pydicom 3', url: 'https://github.com/a-parida12/pdf2dcm/pull/84', status: 'merged' },
   { repo: 'Coffei/webshare-stremio-addon', desc: descriptionOverrides['Coffei/webshare-stremio-addon'], title: 'Fix getUrl error handling and small cleanups', url: 'https://github.com/Coffei/webshare-stremio-addon/pull/39', status: 'merged' },
+  { repo: 'pydicom/pydicom', desc: 'Read, modify and write DICOM files with python code', title: 'Reduce peak memory usage in `apply_windowing`', url: 'https://github.com/pydicom/pydicom/pull/2315', status: 'open' },
 ];
+
+// one entry per repo with all its PRs, ordered by the repo's newest PR
+function groupByRepo(contributions) {
+  const groups = new Map();
+  contributions.forEach(c => {
+    if (!groups.has(c.repo)) groups.set(c.repo, { repo: c.repo, desc: c.desc, prs: [] });
+    groups.get(c.repo).prs.push(c);
+  });
+  return [...groups.values()];
+}
 
 function renderContributions(contributions) {
   const container = document.getElementById('contrib-container');
   container.innerHTML = '';
 
-  contributions.forEach(c => {
+  groupByRepo(contributions).forEach(group => {
     const item = document.createElement('div');
     item.classList.add('contrib');
 
@@ -26,31 +38,38 @@ function renderContributions(contributions) {
 
     const repoLink = document.createElement('a');
     repoLink.classList.add('contrib-repo');
-    repoLink.href = 'https://github.com/' + c.repo;
+    repoLink.href = 'https://github.com/' + group.repo;
     repoLink.target = '_blank';
-    repoLink.textContent = c.repo;
-
-    const status = document.createElement('span');
-    status.classList.add('contrib-status', c.status);
-    status.textContent = '[' + c.status + ']';
+    repoLink.textContent = group.repo;
 
     header.appendChild(repoLink);
-    header.appendChild(status);
     item.appendChild(header);
 
-    if (c.desc) {
+    if (group.desc) {
       const desc = document.createElement('p');
       desc.classList.add('contrib-desc');
-      desc.textContent = c.desc;
+      desc.textContent = group.desc;
       item.appendChild(desc);
     }
 
-    const prLink = document.createElement('a');
-    prLink.classList.add('contrib-title');
-    prLink.href = c.url;
-    prLink.target = '_blank';
-    prLink.textContent = '↳ ' + c.title.replace(/`/g, '');
-    item.appendChild(prLink);
+    group.prs.forEach(c => {
+      const pr = document.createElement('div');
+      pr.classList.add('contrib-pr');
+
+      const prLink = document.createElement('a');
+      prLink.classList.add('contrib-title');
+      prLink.href = c.url;
+      prLink.target = '_blank';
+      prLink.textContent = '↳ ' + c.title.replace(/`/g, '');
+
+      const status = document.createElement('span');
+      status.classList.add('contrib-status', c.status);
+      status.textContent = '[' + c.status + ']';
+
+      pr.appendChild(prLink);
+      pr.appendChild(status);
+      item.appendChild(pr);
+    });
 
     container.appendChild(item);
   });
@@ -72,7 +91,9 @@ function fetchRepoDescriptions(contributions) {
       }
     });
     contributions.forEach(c => {
-      c.desc = descs[c.repo] || descriptionOverrides[c.repo];
+      // the repo API has its own rate limit; fall back to the snapshot's description
+      const snapshot = contributionsFallback.find(f => f.repo === c.repo);
+      c.desc = descs[c.repo] || descriptionOverrides[c.repo] || (snapshot && snapshot.desc);
     });
     return contributions;
   });
